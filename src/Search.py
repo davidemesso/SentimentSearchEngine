@@ -10,39 +10,44 @@ import json
 
 ## Init argparser
 argParser = ArgumentParser()
-argParser.add_argument('query', nargs='*', type=str)
+argParser.add_argument('query', nargs='*', type=str, help="The search terms")
 argParser.add_argument(
     '-f', 
     '--fields', 
     nargs='*', 
     choices=["location", "city", "title", "content"],
-    default=["title", "content"]
+    default=["title", "content"],
+    help="Fields to search the terms into"
 )
 group = argParser.add_mutually_exclusive_group()
-group.add_argument('-l', choices=["joy", "fear", "sadness", "anger"])
-group.add_argument('-m', choices=["joy", "fear", "sadness", "anger"])
-group.add_argument('-L', choices=["joy", "fear", "sadness", "anger"])
-group.add_argument('-M', choices=["joy", "fear", "sadness", "anger"])
+group.add_argument('-l', choices=["joy", "fear", "sadness", "anger"], help="Sentiment with low negative impact")
+group.add_argument('-m', choices=["joy", "fear", "sadness", "anger"], help="Sentiment with low positive impact")
+group.add_argument('-L', choices=["joy", "fear", "sadness", "anger"], help="Sentiment with high negative impact")
+group.add_argument('-M', choices=["joy", "fear", "sadness", "anger"], help="Sentiment with high positive impact")
 argParser.add_argument(
     '-a',
     '--andquery',
     default=False,
-    action='store_true'
+    action='store_true',
+    help="Search terms with AND logic, default is OR"
 )
 argParser.add_argument(
     '--autocorrect',
     default=False,
-    action='store_true'
+    action='store_true',
+    help="Enable autocorrect with most confident correction"
 )
 argParser.add_argument(
     '--limit',
     type=int,
-    default=10
+    default=10,
+    help="Limit the number of results, default 10"
 )
 argParser.add_argument(
     '-t',
     default=False,
-    action='store_true'
+    action='store_true', 
+    help="Switch to TF-IDF scoring"
 )
 
 args = argParser.parse_args()
