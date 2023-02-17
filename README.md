@@ -108,9 +108,44 @@ options:
   --limit LIMIT         Limit the number of results, default 10
   -t                    Switch to TF-IDF scoring
 ```
+esempi:
+``` python
+python3 Search.py sushi fresco modena -f title content city -m joy
+python3 Search.py piza lasagna -a -M joy -c
+#piza autocorretto in pizza
+```
 
 Nota: Il comportamento di base senza opzioni aggiuntive e fornendo solo la query è quello di cercare i termini della query in or nei field title e content dell'indice usando il modello di scoring BM25.
 
 ## Benchmark
 
-WIP
+Nella cartella benchmarks è presente il file [benchmark.txt](./benchmarks/benchmark.txt) contenente 10 UIN con le rispettive query e alcune varianti.
+Vengono inoltre allegate le rilevanze assegnate ai primi 10 documenti del risultato, in modo da calcolare la DCG e la NDCG.
+
+Utilizzando lo script [Benchmark.py](./benchmarks/Benchmark.py) si può inserire una query di quelle selezionate, e interattivamente verranno richieste le rilevanze assegnate ad ogni risultato presentato, e in risposta verranno printati DGC e NDGC.
+
+```python
+python3 Benchmark.py query [--options]
+
+11.890800953422591
+../Docs/Modena//Trattoria il Portichetto+24.json
+Modena
+Trattoria il Portichetto
+Nuova Gestione
+Pizza Fantastica e pasta tutta fatta in casa ( Tortelloni,Tortellini, Lasagne, Tagliatelle e Pappardelle ) !! Da provare
+joy
+
+Inserisci la rilevanza di questo documento: [input]
+.
+.
+# 10 ripetizioni
+.
+.
+DCG values for first 10 retrieved documents:
+[3, 6.0, 7.262, 7.262, 7.693, 8.854, 
+9.566, 10.233, 10.233, 10.233]
+Normalized DCG for 10 retrieved documents
+0.94
+```
+
+Per tutti gli input e risultati consultare [benchmark.txt](./benchmarks/benchmark.txt).

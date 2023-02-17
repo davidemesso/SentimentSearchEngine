@@ -74,7 +74,7 @@ args = argParser.parse_args()
 print(args)
 
 ## Init search
-ix = open_dir("../indexdirLangAnalyzer")
+ix = open_dir("../indexdirLangAnalyzer2")
 print(ix.doc_count_all())
 
 scorer = scoring.TF_IDF() if args.t else scoring.BM25F()
@@ -90,7 +90,7 @@ possibleCorrection = speller.autocorrect_sentence(queryStr)
 
 if not queryStr == possibleCorrection:
     print(f"Did you mean {possibleCorrection}?")
-    if args.c:
+    if args.c__autocorrect:
         print("Query autocorrected")
         queryStr = possibleCorrection
 

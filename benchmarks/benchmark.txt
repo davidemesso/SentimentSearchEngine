@@ -1,0 +1,52 @@
+Formato:
+UIN
+Query
+Relevance associate ai primi 10 risultati
+Valori di dcg e ndcg
+
+Nota: -t indica un benchmark alternativo usando tf-idf
+
+1.
+Ristorante che cucina primi tradizionali tipo tagliatella al ragù e lasagna, molto interessato alla felicità dei clienti
+Tagliatella tradizionale lasagna -M joy
+[....]
+[....]
+1.0
+
+Tagliatella tradizionale lasagna -M joy -t
+[....]
+[....]
+1.0
+
+2.
+Bar che serve drink e fa amburgher  
+Drink hamburger -a -c	
+[....]
+[....]
+1.0
+
+Drink hamburger -a -c -t
+[....]
+[....]
+1.0
+
+3.
+Mangiato per niente male, felicità	
+Mangiato male -m joy
+[....]
+[....]
+1.0
+
+4.
+Ristorante sushi in cui c’è stata paura di pesce poco fresco
+Sushi pesce fresco -M fear
+[....]
+[....]
+1.0
+
+5.
+Ristorante che è delusione per tempi d’attesa	
+Tempo attesa -m sadness
+[....]
+[....]
+1.0
