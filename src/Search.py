@@ -32,6 +32,7 @@ argParser.add_argument(
     help="Search terms with AND logic, default is OR"
 )
 argParser.add_argument(
+    '-c'
     '--autocorrect',
     default=False,
     action='store_true',
@@ -70,7 +71,7 @@ possibleCorrection = speller.autocorrect_sentence(queryStr)
 
 if not queryStr == possibleCorrection:
     print(f"Did you mean {possibleCorrection}?")
-    if args.autocorrect:
+    if args.c:
         print("Query autocorrected")
         queryStr = possibleCorrection
 
