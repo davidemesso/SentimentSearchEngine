@@ -55,7 +55,7 @@ args = argParser.parse_args()
 print(args)
 
 ## Init search
-ix = open_dir("../indexdirLangAnalyzer2")
+ix = open_dir("../indexdir")
 print(ix.doc_count_all())
 
 scorer = scoring.TF_IDF() if args.t else scoring.BM25F()

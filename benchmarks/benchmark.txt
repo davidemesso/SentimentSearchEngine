@@ -2,51 +2,82 @@ Formato:
 UIN
 Query
 Relevance associate ai primi 10 risultati
-Valori di dcg e ndcg
+Valori di dcg
 
 Nota: -t indica un benchmark alternativo usando tf-idf
 
 1.
 Ristorante che cucina primi tradizionali tipo tagliatella al ragù e lasagna, molto interessato alla felicità dei clienti
 Tagliatella tradizionale lasagna -M joy
-[....]
-[....]
-1.0
+[2, 1, 1, 1, 1, 1, 2, 1, 1, 1]
+[2, 3.0, 3.631, 4.131, 4.562, 4.949, 5.661, 5.994, 6.309, 6.61]
+
 
 Tagliatella tradizionale lasagna -M joy -t
-[....]
-[....]
-1.0
+[2, 2, 1, 1, 1, 2, 1, 3, 3, 2]
+[2, 4.0, 4.631, 5.131, 5.562, 6.336, 6.692, 7.692, 8.638, 9.24]
+
 
 2.
 Bar che serve drink e fa amburgher  
 Drink hamburger -a -c	
-[....]
-[....]
-1.0
+[3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+[3, 6.0, 7.893, 9.393, 10.685, 11.846, 12.915, 13.915, 14.861, 15.764]
 
 Drink hamburger -a -c -t
-[....]
-[....]
-1.0
+[3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+[3, 6.0, 7.893, 9.393, 10.685, 11.846, 12.915, 13.915, 14.861, 15.764]
+
 
 3.
 Mangiato per niente male, felicità	
 Mangiato male -m joy
-[....]
-[....]
-1.0
+[1, 0, 0, 3, 3, 2, 0, 1, 0, 3]
+[1, 1.0, 1.0, 2.5, 3.792, 4.566, 4.566, 4.899, 4.899, 5.802]
 
 4.
 Ristorante sushi in cui c’è stata paura di pesce poco fresco
 Sushi pesce fresco -M fear
-[....]
-[....]
-1.0
+[0, 0, 1, 3, 3, 1, 3, 3, 0, 0]
+[0, 0.0, 0.631, 2.131, 3.423, 3.81, 4.879, 5.879, 5.879, 5.879]
 
 5.
 Ristorante che è delusione per tempi d’attesa	
 Tempo attesa -m sadness
-[....]
-[....]
-1.0
+[3, 3, 3, 3, 3, 3, 3, 3, 2, 3]
+[3, 6.0, 7.893, 9.393, 10.685, 11.846, 12.915, 13.915, 14.546, 15.449]
+
+6.
+Personale sgradevole o incompetente, risultato negativo
+personale sgradevole incompetente -L joy 
+[2, 3, 3, 2, 3, 3, 2, 3, 3, 1]
+[2, 5.0, 6.893, 7.893, 9.185, 10.346, 11.058, 12.058, 13.004, 13.305]
+
+7.
+Torta tortelli tortellini o tortini, a modena
+tort* modena -f content title city
+[3, 1, 3, 3, 2, 2, 1, 2, 1, 1]
+[3, 4.0, 5.893, 7.393, 8.254, 9.028, 9.384, 10.051, 10.366, 10.667]
+
+tort* modena -f content title city -t
+[1, 2, 2, 1, 1, 2, 1, 3, 2, 1]
+[1, 3.0, 4.262, 4.762, 5.193, 5.967, 6.323, 7.323, 7.954, 8.255]
+
+
+8.
+Rapporto qualità prezzo interessato ma non troppo alla tristezza
+qualità prezzo -a -m sadness 
+[1, 3, 3, 3, 2, 1, 3, 2, 1, 2]
+[1, 4.0, 5.893, 7.393, 8.254, 8.641, 9.71, 10.377, 10.692, 11.294]
+
+9.
+Sia carne che pesce che pizza, senza rabbia.
+carne pesce pizza -a -L anger
+[0, 3, 3, 3, 2, 2, 3, 3, 2, 3]
+[0, 3.0, 4.893, 6.393, 7.254, 8.028, 9.097, 10.097, 10.728, 11.631]
+
+10.
+Ottima location con enfasi nel titolo a parma
+ottima location parma -a -f title city
+[3, 3, 3, 3, 3, 3, 3, 3, 2, 3]
+[3, 6.0, 7.893, 9.393, 10.685, 11.846, 12.915, 13.915, 14.546, 15.449]
